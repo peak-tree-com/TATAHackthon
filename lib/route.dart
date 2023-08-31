@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tatahackathon/Feature/Screen/AuthScreen/Loginpage.dart';
+import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenThree.dart';
 
 Route<dynamic> onGenrate(RouteSettings settings) {
   switch (settings.name) {

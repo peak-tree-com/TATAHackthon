@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tatahackathon/Feature/Screen/AuthScreen/Loginpage.dart';
-
+import 'package:tatahackathon/Constraints/Constraints.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenOne.dart';
+import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenThree.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenTwo.dart';
+import 'package:tatahackathon/util.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -13,6 +14,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  Additional onboarding = Additional();
   final PageController _controller = PageController();
   bool _skip = false;
   bool _continue = false;
@@ -49,10 +51,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, LoginPage.route, (route) => false);
                           },
-                          child: const Text(
-                            'continue',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15.5),
+                          child: Text(
+                            onboarding.continueTxt,
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 15.5),
                           ),
                         )
                       : GestureDetector(
@@ -73,11 +75,20 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               alignment: const Alignment(0, 0.85),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
                       minimumSize: const Size(240, 45),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
-                  onPressed: () {},
-                  child: const Text('Continue')))
+                  onPressed: () {
+                    _controller.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.linear);
+                  },
+                  child: Text(
+                    onboarding.continueTxt,
+                    style: TextStyle(
+                        color: themeColor, fontFamily: fontFamily().popMEd),
+                  )))
         ],
       ),
     );
