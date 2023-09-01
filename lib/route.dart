@@ -3,10 +3,10 @@ import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenThree.dart';
 
 Route<dynamic> onGenrate(RouteSettings settings) {
   switch (settings.name) {
-    case LoginPage.route:
+    case ScreenThree.route:
       return MaterialPageRoute(
         settings: settings,
-        builder: (context) => const LoginPage(),
+        builder: (context) => const ScreenThree(),
       );
 
     default:

@@ -4,6 +4,9 @@ import 'package:tatahackathon/Constraints/Constraints.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenOne.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenThree.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenTwo.dart';
+import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomOnboardingElevated.dart';
+import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomOnboardingGestureDetector.dart';
+import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -18,20 +21,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final PageController _controller = PageController();
   bool _skip = false;
   bool _continue = false;
+  bool _signin = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           PageView(
-            onPageChanged: (value) {
+            onPageChanged: (index) {
               setState(() {
-                _skip = (value == 2);
-                _continue = (value == 2);
+                _skip = (index == 2);
+                _continue = (index == 2);
+                _signin = (index == 2);
               });
             },
             controller: _controller,
-            children: const [ScreenOne(), ScreenTwo(), LoginPage()],
+            children: const [ScreenOne(), ScreenTwo(), ScreenThree()],
           ),
           Align(
             alignment: const Alignment(-0.9, -0.85),
@@ -46,49 +51,48 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       controller: _controller,
                       count: 3),
                   _skip
-                      ? GestureDetector(
+                      ? CustomOnboardingGestureDetector(
                           onTap: () {
                             Navigator.pushNamedAndRemoveUntil(
-                                context, LoginPage.route, (route) => false);
+                                context, ScreenThree.route, (route) => false);
                           },
-                          child: Text(
-                            onboarding.continueTxt,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 15.5),
-                          ),
-                        )
-                      : GestureDetector(
+                          text: onboarding.later)
+                      : CustomOnboardingGestureDetector(
                           onTap: () {
                             _controller.jumpToPage(2);
                           },
-                          child: const Text(
-                            'Skip >',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15.5),
-                          ),
-                        ),
+                          text: onboarding.skip),
                 ],
               ),
             ),
           ),
-          Align(
-              alignment: const Alignment(0, 0.85),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      minimumSize: const Size(240, 45),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                  onPressed: () {
-                    _controller.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.linear);
-                  },
-                  child: Text(
-                    onboarding.continueTxt,
-                    style: TextStyle(
-                        color: themeColor, fontFamily: fontFamily().popMEd),
-                  )))
+          _continue
+              ? Align(
+                  alignment: const Alignment(0, 0.85),
+                  child: CustomOnboardingElevated(
+                    onPressed: () {
+                      _controller.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.linear);
+                    },
+                    text: onboarding.signup,
+                  ))
+              : Align(
+                  alignment: const Alignment(0, 0.85),
+                  child: CustomOnboardingElevated(
+                      onPressed: () {
+                        _controller.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.linear);
+                      },
+                      text: onboarding.continueTxt)),
+          _signin
+              ? Align(
+                  alignment: const Alignment(0, 0.95),
+                  child: CustomTextPopReg(text: onboarding.login))
+              : const Align(
+                  alignment: Alignment(0, 0.85),
+                  child: CustomTextPopReg(text: ''))
         ],
       ),
     );

@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 
-class LoginPage extends StatelessWidget {
-  static const route = '/LoginPage';
-  const LoginPage({super.key});
+class ScreenThree extends StatefulWidget {
+  static const route = '/ScreenThree';
+  const ScreenThree({super.key});
+
+  @override
+  State<ScreenThree> createState() => _ScreenThreeState();
+}
+
+class _ScreenThreeState extends State<ScreenThree> {
+  Additional auth = Additional();
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +28,14 @@ class LoginPage extends StatelessWidget {
           themeColorWithOpacity,
           //Colors.lightBlueAccent
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        child: Stack(children: [
+          // Align(
+          //   alignment: const Alignment(0, 0.945),
+          //   child: CustomTextPopReg(
+          //     text: auth.login,
+          //   ),
+          // )
+        ]),
       ),
     );
   }

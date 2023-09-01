@@ -7,6 +7,10 @@ class Additional {
   String screenTwoText2 =
       'Revolutionize user onboarding through smart automation and tailored recommendations';
   String continueTxt = 'Continue';
+  String signup = 'Sign Up';
+  String login = 'Login';
+  String later = 'Later >';
+  String skip = 'Skip >';
 }
 
 class fontFamily {
