@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/OnBoardScreen.dart';
 import 'package:tatahackathon/route.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 

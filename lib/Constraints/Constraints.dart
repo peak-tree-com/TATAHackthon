@@ -11,9 +11,14 @@ class Additional {
   String login = 'Login';
   String later = 'Later >';
   String skip = 'Skip >';
+  String signInText = 'Hello\nSign in!';
+  String emailErrorMsg = 'Please enter a valid email address';
+  String email= 'E-mail';
+  String password= 'Password';
+  String passwordErrorMsg ='Password should contain at least 8 characters long and 1 capital letter';
 }
 
-class fontFamily {
+class FontFamily {
   String popMEd = 'pop med';
   String popReg = 'pop reg';
   String popBold = 'pop bold';

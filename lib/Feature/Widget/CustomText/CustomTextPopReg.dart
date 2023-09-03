@@ -3,13 +3,20 @@ import 'package:tatahackathon/Constraints/Constraints.dart';
 
 class CustomTextPopReg extends StatelessWidget {
   final String text;
-  const CustomTextPopReg({super.key, required this.text});
+  final double fontSize;
+  final Color color;
+  const CustomTextPopReg({
+    super.key, 
+    required this.text, 
+    required this.fontSize, 
+    required this.color
+    });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: Colors.white, fontFamily: fontFamily().popMEd),
+      style: TextStyle(color: color, fontFamily: FontFamily().popMEd,fontSize: fontSize),
     );
   }
 }

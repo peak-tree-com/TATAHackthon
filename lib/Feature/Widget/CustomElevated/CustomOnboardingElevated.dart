@@ -19,7 +19,7 @@ class CustomOnboardingElevated extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(color: themeColor, fontFamily: fontFamily().popMEd),
+          style: TextStyle(color: themeColor, fontFamily: FontFamily().popMEd,fontSize: 16.5),
         ));
   }
 }

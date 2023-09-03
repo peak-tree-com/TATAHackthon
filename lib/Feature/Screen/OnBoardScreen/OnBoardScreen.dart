@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Screen/AuthScreen/Login.dart';
+import 'package:tatahackathon/Feature/Screen/AuthScreen/Signup.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenOne.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenThree.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenTwo.dart';
 import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomOnboardingElevated.dart';
 import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomOnboardingGestureDetector.dart';
 import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
-import 'package:tatahackathon/util.dart';
+
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -53,8 +55,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   _skip
                       ? CustomOnboardingGestureDetector(
                           onTap: () {
-                            Navigator.pushNamedAndRemoveUntil(
-                                context, ScreenThree.route, (route) => false);
+                            // Navigator.pushNamedAndRemoveUntil(
+                            //     context, ScreenThree.route, (route) => false);
                           },
                           text: onboarding.later)
                       : CustomOnboardingGestureDetector(
@@ -67,13 +69,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           _continue
+          //Navigate to signup Page
               ? Align(
                   alignment: const Alignment(0, 0.85),
                   child: CustomOnboardingElevated(
                     onPressed: () {
-                      _controller.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.linear);
+                      Navigator.pushNamed(
+                        context, SignUpScreen.route,);
                     },
                     text: onboarding.signup,
                   ))
@@ -87,12 +89,25 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       },
                       text: onboarding.continueTxt)),
           _signin
-              ? Align(
-                  alignment: const Alignment(0, 0.95),
-                  child: CustomTextPopReg(text: onboarding.login))
+              ? 
+              //Navigate login Page
+              Align(
+                alignment: const Alignment(0, 0.95),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, LoginScreen.route);
+                  },
+                  child:  CustomTextPopReg(
+                    text: onboarding.login,
+                    fontSize:  16.5,
+                    color: Colors.white,
+                  ),
+                )
+              )
               : const Align(
                   alignment: Alignment(0, 0.85),
-                  child: CustomTextPopReg(text: ''))
+                  child: CustomTextPopReg(text: '',fontSize: 0,
+                    color: Colors.white,))
         ],
       ),
     );
