@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Screen/AuthScreen/AuthScreen.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/Login.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/Signup.dart';
 import 'package:tatahackathon/Feature/Screen/OnBoardScreen/ScreenOne.dart';
@@ -55,10 +56,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   _skip
                       ? CustomOnboardingGestureDetector(
                           onTap: () {
-                            // Navigator.pushNamedAndRemoveUntil(
-                            //     context, ScreenThree.route, (route) => false);
+                            Navigator.pushNamed(
+                              context, AuthScreen.route);
                           },
-                          text: onboarding.later)
+                          text: onboarding.next)
                       : CustomOnboardingGestureDetector(
                           onTap: () {
                             _controller.jumpToPage(2);

@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
-import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 
 class CustomRoundCheckedBox extends StatefulWidget {

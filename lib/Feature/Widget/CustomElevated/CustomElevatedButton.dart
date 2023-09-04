@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -20,10 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30))),
           onPressed: onPressed,
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.white, fontFamily: FontFamily().popMEd,fontSize: 14.5),
-          )
+          child: CustomTextPopReg(text: text, fontSize: 15.5, color: Colors.white)
         ),
     );
   }

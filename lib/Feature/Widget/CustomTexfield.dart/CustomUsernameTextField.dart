@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
 import 'package:tatahackathon/util.dart';
 
-class CustomEmailTextField extends StatefulWidget {
+class CustomUsernameTextField extends StatefulWidget {
   final TextEditingController controller;
-  const CustomEmailTextField({super.key,required this.controller});
+  const CustomUsernameTextField({super.key,required this.controller});
 
   @override
-  State<CustomEmailTextField> createState() => _CustomEmailTextFieldState();
+  State<CustomUsernameTextField> createState() => _CustomUsernameTextFieldState();
 }
 
-class _CustomEmailTextFieldState extends State<CustomEmailTextField> {
+class _CustomUsernameTextFieldState extends State<CustomUsernameTextField> {
   String _errorText = '';
   @override
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.only(top:10.0,bottom:10.0,),
       child: TextField(
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.name,
         controller: widget.controller,
         style: TextStyle(
           color: Colors.black.withOpacity(0.7),
@@ -30,10 +30,10 @@ class _CustomEmailTextFieldState extends State<CustomEmailTextField> {
             color: Colors.black.withOpacity(0.7)
           ),
           prefixIcon: Icon(
-            Icons.email_outlined,
+            Icons.person_4_outlined,
             color:_errorText.isEmpty? homeColor:warningColor,
           ),
-          hintText: Additional().email,
+          hintText: Additional().userName,
           errorText: _errorText.isEmpty?null:_errorText,
           focusedBorder:OutlineInputBorder(
             borderSide: const BorderSide(width: 2,color: homeColor),
@@ -55,11 +55,11 @@ class _CustomEmailTextFieldState extends State<CustomEmailTextField> {
         ),
         onChanged: (value) {
           setState(() {
-            if(value.contains('@')&&value.contains('.com')){
+            if(value.length>=5){
               _errorText = '';
             }
             else{
-              _errorText = Additional().emailErrorMsg;
+              _errorText = Additional().userNameErrorMsg;
             }
           });
         },

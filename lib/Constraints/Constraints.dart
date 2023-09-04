@@ -9,12 +9,18 @@ class Additional {
   String continueTxt = 'Continue';
   String signup = 'Sign Up';
   String login = 'Login';
-  String later = 'Later >';
+  String next = 'Next >';
   String skip = 'Skip >';
   String signInText = 'Hello\nSign in!';
+  String signUpText = 'Create Your\nAccount';
   String emailErrorMsg = 'Please enter a valid email address';
   String email= 'E-mail';
   String password= 'Password';
+  String name ='Name';
+  String userName ='Username';
+  String nameErrorMsg = 'Name should contain at least 5 characters';
+  String userNameErrorMsg = 'Username should contain at least 5 characters';
+  String forgetPasword = 'Forget Password? ';
   String passwordErrorMsg ='Password should contain at least 8 characters long and 1 capital letter';
 }
 

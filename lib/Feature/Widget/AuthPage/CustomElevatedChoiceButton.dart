@@ -19,6 +19,9 @@ class CustomElevatedChoiceButton extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20)
+          ),
           shadowColor: blackWithOpacity,
           elevation: 25,
           minimumSize: const Size(160, 50)
@@ -29,7 +32,11 @@ class CustomElevatedChoiceButton extends StatelessWidget {
             Image.asset(image,height: 30,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:8.0),
-              child: CustomTextPopReg(text: text, fontSize: 13.5, color: homeColor),
+              child: CustomTextPopReg(
+                text: text, 
+                fontSize: 13.5, 
+                color: blackWithOpacity
+                ),
             )
           ],
         ),

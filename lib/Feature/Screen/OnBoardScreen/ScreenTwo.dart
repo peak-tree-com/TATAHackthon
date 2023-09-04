@@ -36,8 +36,8 @@ class _ScreenTwoState extends State<ScreenTwo> {
               child: Text(
                 texts.screenTwoText1,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: 'pop med',
+                style: TextStyle(
+                  fontFamily: FontFamily().popMEd,
                   color: Colors.white,
                   fontSize: 28,
                 ),
@@ -49,7 +49,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                 texts.screenTwoText2,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'pop reg',
+                  fontFamily: FontFamily().popReg,
                   color: Colors.white.withOpacity(0.95),
                   fontSize: 16,
                 ),

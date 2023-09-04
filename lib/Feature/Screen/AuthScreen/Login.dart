@@ -3,13 +3,12 @@ import 'package:hive/hive.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomChoiceWidget.dart';
-import 'package:tatahackathon/Feature/Widget/AuthPage/CustomElevatedChoiceButton.dart';
-import 'package:tatahackathon/Feature/Widget/AuthPage/CustomLoginTopUi.dart';
+import 'package:tatahackathon/Feature/Widget/AuthPage/CustomTopUi.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomRememberText.dart';
+import 'package:tatahackathon/Feature/Widget/AuthPage/LogintoSignup.dart';
 import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomElevatedButton.dart';
 import 'package:tatahackathon/Feature/Widget/CustomTexfield.dart/CustomPasswordTextField.dart';
 import 'package:tatahackathon/Feature/Widget/CustomTexfield.dart/CustomTextField.dart';
-import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -73,10 +72,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 )
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child:  Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                padding: const EdgeInsets.only(left:20.0,right: 20,top: 10),
+                child:  ListView(
                   children: [
+                    SizedBox(height: height*0.065,),
                     CustomEmailTextField(controller: email,),
                     CustomPasswordTextField(controller: password),
                     Padding(
@@ -101,13 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomTextPopReg(text: 'Forget Password? ', fontSize: 14,color: blackWithOpacity,),
-                        const CustomTextPopReg(text: 'Sign Up', fontSize: 14, color: homeColor)
-                      ],
-                    ),
+                    LoginToSignup(),
                     CustomElevatedButton(
                       onPressed: (){
                         login();
