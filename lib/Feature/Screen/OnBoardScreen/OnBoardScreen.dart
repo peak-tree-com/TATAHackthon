@@ -85,7 +85,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   child: CustomOnboardingElevated(
                       onPressed: () {
                         _controller.nextPage(
-                            duration: const Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 150),
                             curve: Curves.linear);
                       },
                       text: onboarding.continueTxt)),

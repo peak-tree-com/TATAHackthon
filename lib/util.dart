@@ -10,3 +10,5 @@ Color themeColorWithOpacity =
 const int milliSeconds = 450;
 
 Color blackWithOpacity = Colors.black.withOpacity(0.7);
+
+String url = 'http://192.168.29.172:3000';

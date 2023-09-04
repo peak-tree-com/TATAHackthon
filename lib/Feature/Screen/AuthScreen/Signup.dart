@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Services/AuthServices.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomTopUi.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/LogintoSignup.dart';
 import 'package:tatahackathon/Feature/Widget/CustomElevated/CustomElevatedButton.dart';
@@ -16,11 +17,23 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  AuthServices authServices = AuthServices();
+
   Additional signup =Additional();
   TextEditingController name = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
+  void signupUser(){
+    authServices.signUpuser(
+      context: context, 
+      name: name.text, 
+      username: username.text, 
+      email: email.text, 
+      password: password.text
+    );
+  }
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -55,7 +68,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     CustomPasswordTextField(controller: password),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical:10.0),
-                      child: CustomElevatedButton(onPressed: (){}, text: Additional().register),
+                      child: CustomElevatedButton(
+                        onPressed: (){
+                          signupUser();
+                          }, text: Additional().register),
                     ),
                     const SignupToLogin()
                   ],

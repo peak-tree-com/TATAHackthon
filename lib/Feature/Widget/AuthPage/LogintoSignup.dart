@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Screen/AuthScreen/Login.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/Signup.dart';
 import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
@@ -48,7 +49,7 @@ class SignupToLogin extends StatelessWidget {
         ),
         GestureDetector(
           onTap: (){
-            Navigator.pushNamed(context, SignUpScreen.route);
+            Navigator.pushNamed(context, LoginScreen.route);
           },
           child: CustomTextPopReg(
             text: Additional().login, 

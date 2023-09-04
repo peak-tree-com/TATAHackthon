@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tatahackathon/Constraints/Constraints.dart';
 import 'package:tatahackathon/Feature/Widget/CustomText/CustomTextPopReg.dart';
 import 'package:tatahackathon/util.dart';
 

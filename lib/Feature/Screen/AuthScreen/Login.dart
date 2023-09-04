@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 import 'package:tatahackathon/Constraints/Constraints.dart';
+import 'package:tatahackathon/Feature/Services/AuthServices.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomChoiceWidget.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomTopUi.dart';
 import 'package:tatahackathon/Feature/Widget/AuthPage/CustomRememberText.dart';
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController password = TextEditingController();
   Additional signup =Additional();
   late Box? box1;
-
+  AuthServices authServices = AuthServices();
   @override
   void initState() {
     super.initState();
@@ -42,6 +43,11 @@ class _LoginScreenState extends State<LoginScreen> {
       box1!.put('email', email.text);
       box1!.put('password', password.text);
     }
+    authServices.signInuser(
+      context: context, 
+      email: email.text, 
+      password: password.text
+      );
   }
   void getData(){
     if(box1!.get('email')!=null){
@@ -51,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
       password.text = box1!.get('password');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
