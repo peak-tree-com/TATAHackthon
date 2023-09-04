@@ -42,7 +42,7 @@ class SignupToLogin extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomTextPopReg(
-          text: Additional().forgetPasword, 
+          text: Additional().account, 
           fontSize: 14, 
           color: blackWithOpacity,
         ),
@@ -51,8 +51,8 @@ class SignupToLogin extends StatelessWidget {
             Navigator.pushNamed(context, SignUpScreen.route);
           },
           child: CustomTextPopReg(
-            text: Additional().signup, 
-            fontSize: 14, 
+            text: Additional().login, 
+            fontSize: 15, 
             color: homeColor
           )
         )

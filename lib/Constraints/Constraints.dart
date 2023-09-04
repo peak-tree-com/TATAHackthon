@@ -22,6 +22,7 @@ class Additional {
   String nameErrorMsg = 'Name should contain at least 5 characters';
   String userNameErrorMsg = 'Username should contain at least 5 characters';
   String forgetPasword = 'Forget Password? ';
+  String account = 'Already have an account? ';
   String passwordErrorMsg ='Password should contain at least 8 characters long and 1 capital letter';
 }
 
