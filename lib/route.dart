@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/AuthScreen.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/Login.dart';
 import 'package:tatahackathon/Feature/Screen/AuthScreen/Signup.dart';
+import 'package:tatahackathon/Feature/Screen/DashBoard/Dashboard.dart';
 import 'package:tatahackathon/util.dart';
 
 Route<dynamic> onGenrate(RouteSettings settings) {
@@ -25,6 +26,13 @@ Route<dynamic> onGenrate(RouteSettings settings) {
       return PageTransition(
           duration: const Duration(milliseconds:milliSeconds),
           child: const AuthScreen(), 
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+    case DashBoard.route:
+      return PageTransition(
+          duration: const Duration(milliseconds:milliSeconds),
+          child: const DashBoard(), 
           type: PageTransitionType.fade,
           settings: settings,
         );

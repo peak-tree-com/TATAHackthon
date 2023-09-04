@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tatahackathon/Feature/Models/UserModel.dart';
 import 'package:http/http.dart' as http;
+import 'package:tatahackathon/Feature/Screen/DashBoard/Dashboard.dart';
 import 'package:tatahackathon/Feature/Widget/Error/CustomErrorDisplay.dart';
 import 'package:tatahackathon/Feature/Widget/Error/ErrorHandling.dart';
 import 'package:tatahackathon/Provider/UserProvider.dart';
@@ -87,7 +88,7 @@ class AuthServices{
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            'BottomBar.routeName',
+            DashBoard.route,
             (route) => false,
           );
         },

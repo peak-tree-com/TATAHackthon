@@ -8,6 +8,8 @@ import 'package:tatahackathon/Provider/UserProvider.dart';
 import 'package:tatahackathon/route.dart';
 
 void main() async{
+  
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
@@ -28,8 +30,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    super.initState();
     authService.getUserData(context);
+    super.initState();
   }
 
   @override
@@ -37,8 +39,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ?SignUpScreen()
-          :OnBoardingScreen(),
+          ?const SignUpScreen()
+          :const OnBoardingScreen(),
       onGenerateRoute: (settings) => onGenrate(settings),
     );
   }
