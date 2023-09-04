@@ -8,6 +8,7 @@ class Additional {
       'Revolutionize user onboarding through smart automation and tailored recommendations';
   String continueTxt = 'Continue';
   String signup = 'Sign Up';
+  String register = 'Register';
   String login = 'Login';
   String next = 'Next >';
   String skip = 'Skip >';

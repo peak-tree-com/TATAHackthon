@@ -55,9 +55,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     CustomPasswordTextField(controller: password),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical:10.0),
-                      child: CustomElevatedButton(onPressed: (){}, text: Additional().signup),
+                      child: CustomElevatedButton(onPressed: (){}, text: Additional().register),
                     ),
-                    SignupToLogin()
+                    const SignupToLogin()
                   ],
                 ),
               ),
